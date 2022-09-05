@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-generator",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaneCronin/portfolio-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DaneCronin/portfolio-generator/issues"
+  },
+  "homepage": "https://github.com/DaneCronin/portfolio-generator#readme",
+  "description": "",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
