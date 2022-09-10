@@ -1,7 +1,21 @@
 const inquirer = require('inquirer');
 
 
+
 //function to ask for user name input in CLI
+const {writeFile, copyFile} = require('./utils/generate-site.js');
+const generatePage = require('./src/page-template');
+
+// const pageHTML = generatePage(name, github);
+
+
+
+
+// fs.writeFile('./index.html', pageHTML, err => {
+//     if (err) throw err;
+    
+//     console.log('Portfolio Complete! Checkout index.html to see the output!');
+// });
 
 const promptUser = () => {
     
@@ -51,11 +65,6 @@ const promptUser = () => {
                     return false;
                 }
             }
-          }
-          {
-            type: 'input',
-            name: 'about',
-            message: 'Provide some information about yourself:'
           }
         ]);
       };
@@ -139,22 +148,20 @@ const promptUser = () => {
     .then(promptProject)
    // .then(projectAnswers => console.log(projectAnswers))
     .then(portfolioData => {
-        console.log(portfolioData);
-      });
+        return generatePage(portfolioData);
+    })
+    .then(pageHtml => {
+        return writeFile(pageHtml);
+    })
+    .then(writeFileResponse =>{
+        console.log(writeFileResponse);
+        return copyFile();
+    })
+    .then(copyFileResponse => {
+        console.log(copyFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 
-//function to ask for user
-
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
-
-// const pageHTML = generatePage(name, github);
-
-
-
-
-// fs.writeFile('./index.html', pageHTML, err => {
-//     if (err) throw err;
-    
-//     console.log('Portfolio Complete! Checkout index.html to see the output!');
-// });
